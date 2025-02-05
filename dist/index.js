@@ -14,6 +14,7 @@ const fs = (__nccwpck_require__(9896).promises);
 const os = __nccwpck_require__(857);
 const path = __nccwpck_require__(6928);
 const semver = __nccwpck_require__(2088);
+const util = __nccwpck_require__(9023);
 
 // External
 const core = __nccwpck_require__(7484);
@@ -175,7 +176,7 @@ async function run () {
     return release;
   } catch (error) {
     if (error instanceof AggregateError) {
-      core.error(error.errors);
+      core.error(util.inspect(error));
     } else {
       core.error(error);
     }
